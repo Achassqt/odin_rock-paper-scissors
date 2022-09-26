@@ -16,6 +16,7 @@ let playerScore = 0;
 let compScore = 0;
 
 function playRound(playerSelection, compSelection) {
+  const resultDOM = document.getElementById("result");
   let result = "";
 
   if (playerSelection === compSelection) {
@@ -45,22 +46,38 @@ function playRound(playerSelection, compSelection) {
       result = "Gagné!";
     }
   }
-
-  return result;
-}
-function game() {
-  for (let i = 0; i < 5; i++) {
-    const computerSelection = getComputerChoice();
-    const playerSelection = prompt("Pierre papier ou ciseaux").toLowerCase();
-    alert(
-      `${playRound(
-        playerSelection,
-        computerSelection
-      )} ${playerScore} / ${compScore}`
-    );
-  }
+  console.log(result);
+  return (resultDOM.innerHTML = result);
 }
 
-game();
+// opti le code pour les addEventlistener
+
+const rockButton = document.getElementById("rock");
+rockButton.addEventListener("click", () => {
+  playRound(rockButton.value, getComputerChoice());
+});
+const paperButton = document.getElementById("paper");
+paperButton.addEventListener("click", () => {
+  playRound(paperButton.value, getComputerChoice());
+});
+const scissorsButton = document.getElementById("scissors");
+scissorsButton.addEventListener("click", () => {
+  playRound(scissorsButton.value, getComputerChoice());
+});
+
+// function game() {
+//   for (let i = 0; i < 5; i++) {
+//     const computerSelection = getComputerChoice();
+//     const playerSelection = prompt("Pierre papier ou ciseaux").toLowerCase();
+//     alert(
+//       `${playRound(
+//         playerSelection,
+//         computerSelection
+//       )} ${playerScore} / ${compScore}`
+//     );
+//   }
+// }
+
+// game();
 
 // console.log(playRound(playerSelection, computerSelection));
