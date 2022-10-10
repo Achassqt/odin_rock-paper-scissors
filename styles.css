@@ -1,0 +1,385 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(58, 58, 224);
+}
+
+.choose-character {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  height: 100%;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.characters {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+}
+
+.character {
+  /* position: absolute; */
+  padding: 20px;
+  border-radius: 0.75em;
+  cursor: pointer;
+  /* z-index: 10; */
+}
+
+#perso-1 {
+  left: 25%;
+  top: 10%;
+}
+
+#perso-2 {
+  right: 25%;
+  top: 10%;
+}
+
+.character:hover {
+  background-color: rgba(44, 44, 44, 0.39);
+}
+
+.is-active_character {
+  background-color: #f1d849 !important;
+  outline: 2px solid black;
+}
+
+.character-transition-left {
+  transform: translate(-300px, 65%);
+  transition: transform 1s ease;
+}
+
+.character-transition-right {
+  transform: translate(300px, 65%);
+  transition: transform 1s ease;
+}
+
+.character > img {
+  width: 300px;
+  height: auto;
+  /* object-fit: cover; */
+  border-radius: 30px;
+}
+
+.versus-img {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  z-index: 2;
+  transform-origin: center;
+}
+
+.versus-anim {
+  /* transform: translate(-50%, -50%) scale(2); */
+  /* transition: transform 1s; */
+  animation: versus 1500ms both;
+}
+
+@keyframes versus {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(500px);
+    opacity: 0;
+  }
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 172px;
+  height: 91px;
+}
+
+.instructions > span {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.start-btn {
+  padding: 0;
+  border: none;
+  border-radius: 0.75em;
+  background: black;
+  text-align: center;
+  cursor: pointer;
+}
+
+.start-btn > span {
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 0.75em;
+  padding: 0.75em 2.5em;
+  background: #f1d849;
+  font-size: 17px;
+  font-weight: bold;
+  -moz-user-select: none; /* Firefox */
+  -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+  -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+  user-select: none; /* Propriété standard */
+
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+}
+
+.start-btn:hover > span {
+  transform: translateY(-0.33em);
+}
+
+.start-btn:active > span {
+  transform: translateY(0);
+}
+
+.game-board {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* top: 50%;
+  left: 50%; */
+}
+
+.score-board {
+  background-color: #f1d849;
+  position: absolute;
+  left: 50%;
+  top: 150px;
+  transform: translate(-50%, -50%);
+  height: 225px;
+  width: 525px;
+  border-radius: 0.75em;
+  /* border-radius: 0.75em; */
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  animation: score 1s ease-out both;
+  animation-delay: 400ms;
+}
+
+@keyframes score {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+.score {
+  background-color: rgb(237, 233, 255);
+  height: 90%;
+  width: 46%;
+  border-radius: 0.75em;
+  /* border-radius: 0.75em; */
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score > span {
+  font-size: 100px;
+  font-weight: bold;
+  color: black;
+}
+
+/* #rps-container {
+} */
+
+.test {
+  position: absolute;
+  top: 275px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 350px;
+}
+
+.rps-container-left {
+  position: absolute;
+  left: -545px;
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.rps-container-right {
+  position: absolute;
+  right: -545px;
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.rps {
+  width: 100px;
+  height: 100px;
+  background-color: inherit;
+  border-radius: 0.75em;
+  /* border-style: outset; */
+  animation: rps 1s both;
+  animation-delay: 1500ms;
+
+  background: black;
+  padding: 0;
+  border: none;
+}
+
+@keyframes rps {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rps > img {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+
+  background: #f1d849;
+  border-radius: 0.75em;
+  border: 2px solid black;
+  padding: 5px;
+  box-sizing: border-box;
+
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+}
+
+.rps:hover > img {
+  transform: translateY(-0.33em);
+}
+
+.rps:active > img {
+  transform: translateY(0);
+}
+
+.output-container {
+  position: absolute;
+  left: 50%;
+  top: 603px;
+  transform: translate(-50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.output-transition {
+  animation: text 1700ms both;
+}
+
+@keyframes text {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%) translateY(120px);
+    opacity: 1;
+  }
+}
+
+/* .output-container > div {
+  height: 2px;
+  width: 100%;
+  /* background-color: black; */
+/* overflow: hidden;
+}  */
+
+/* .output-container > div > div {
+  height: 100%;
+  width: 30%;
+  background-color: #f1d849;
+  transform-origin: right;
+  animation: scale 2200ms ease infinite;
+}
+
+@keyframes scale {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(380px);
+  }
+} */
+
+.sfm {
+  position: absolute;
+  left: 50%;
+  top: 400px;
+  transform: translate(-50%);
+}
+
+.sfm > div {
+  position: absolute;
+  top: 0;
+  transform: translate(-50%);
+  font-size: 100px;
+  opacity: 0;
+  /* animation: sfm 1s; */
+}
+
+.delay-1 {
+  animation: sfm 700ms;
+}
+
+.delay-2 {
+  animation: sfm 700ms;
+  animation-delay: 700ms;
+}
+
+.delay-3 {
+  animation: sfm 700ms;
+  animation-delay: 1400ms;
+}
+
+@keyframes sfm {
+  0% {
+    transform: translate(-50%) scale(2);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%) scale(1);
+  }
+}
+
+#restart {
+  position: absolute;
+  top: 770px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 10;
+}

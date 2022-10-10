@@ -4,13 +4,64 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock / Paper / Scissors</title>
+    <link rel="stylesheet" href="styles.css" />
+    <title>ShiFuMi</title>
   </head>
   <body>
-    <button id="rock" value="pierre">Pierre</button>
-    <button id="paper" value="papier">Papier</button>
-    <button id="scissors" value="ciseaux">Ciseaux</button>
-    <div id="result"></div>
+    <main>
+      <div class="choose-character">
+        <div class="characters">
+          <div id="perso-1" tabindex="0" class="character">
+            <img src="images/luffy.png" alt="Luffy" />
+          </div>
+          <img src="./images/versus.png" alt="versus" class="versus-img" />
+          <div id="perso-2" tabindex="0" class="character">
+            <img src="images/kaido.png" alt="Kaido" />
+          </div>
+        </div>
+        <div class="instructions">
+          <span>Choisi ton personnage</span>
+          <button style="display: none" class="start-btn">
+            <span>Jouer</span>
+          </button>
+        </div>
+      </div>
+      <section style="display: none" class="game-board">
+        <div class="score-board">
+          <div class="score">
+            <span id="score-left"></span>
+          </div>
+          <div class="score">
+            <span id="score-right"></span>
+          </div>
+        </div>
+        <div class="test">
+          <div id="rps-container">
+            <button id="rock" class="rps" value="pierre">
+              <img src="./images/poing.png" alt="pierre" />
+            </button>
+            <button id="paper" class="rps" value="papier">
+              <img src="./images/main.png" alt="feuille" />
+            </button>
+            <button id="scissors" class="rps" value="ciseaux">
+              <img src="./images/ciseaux.png" alt="ciseaux" />
+            </button>
+          </div>
+        </div>
+        <div class="output-container">
+          <span id="output"></span>
+          <!-- <div><div></div></div> -->
+        </div>
+        <div class="sfm">
+          <div id="shi">Shi</div>
+          <div id="fu">Fu</div>
+          <div id="mi">Mi</div>
+        </div>
+        <button id="restart" class="start-btn" style="display: none">
+          <span>Rejouer</span>
+        </button>
+      </section>
+    </main>
     <script src="index.js"></script>
   </body>
 </html>
