@@ -9,58 +9,70 @@
   </head>
   <body>
     <main>
-      <div class="choose-character">
-        <div class="characters">
-          <div id="perso-1" tabindex="0" class="character">
-            <img src="images/luffy.png" alt="Luffy" />
-          </div>
-          <img src="./images/versus.png" alt="versus" class="versus-img" />
-          <div id="perso-2" tabindex="0" class="character">
-            <img src="images/kaido.png" alt="Kaido" />
-          </div>
-        </div>
-        <div class="instructions">
-          <span>Choisi ton personnage</span>
-          <button style="display: none" class="start-btn">
-            <span>Jouer</span>
-          </button>
-        </div>
-      </div>
-      <section style="display: none" class="game-board">
-        <div class="score-board">
-          <div class="score">
-            <span id="score-left"></span>
-          </div>
-          <div class="score">
-            <span id="score-right"></span>
-          </div>
-        </div>
-        <div class="test">
-          <div id="rps-container">
-            <button id="rock" class="rps" value="pierre">
+      <div class="characters">
+        <div id="left-player" tabindex="0">
+          <img
+            class="character left-character"
+            src="images/luffy.png"
+            alt="Luffy"
+          />
+          <div id="rps-left" class="rps-container">
+            <button id="rock-left" class="rps" value="pierre">
               <img src="./images/poing.png" alt="pierre" />
             </button>
-            <button id="paper" class="rps" value="papier">
+            <button id="paper-left" class="rps" value="papier">
               <img src="./images/main.png" alt="feuille" />
             </button>
-            <button id="scissors" class="rps" value="ciseaux">
+            <button id="scissors-left" class="rps" value="ciseaux">
               <img src="./images/ciseaux.png" alt="ciseaux" />
             </button>
           </div>
         </div>
+        <img src="./images/versus.png" alt="versus" class="versus-img" />
         <div class="output-container">
           <span id="output"></span>
-          <!-- <div><div></div></div> -->
-        </div>
-        <div class="sfm">
-          <div id="shi">Shi</div>
-          <div id="fu">Fu</div>
-          <div id="mi">Mi</div>
         </div>
         <button id="restart" class="start-btn" style="display: none">
           <span>Rejouer</span>
         </button>
-      </section>
+        <div id="right-player" tabindex="0">
+          <img
+            class="character right-character"
+            src="images/kaido.png"
+            alt="Kaido"
+          />
+          <div id="rps-right" class="rps-container">
+            <button id="rock-right" class="rps" value="pierre">
+              <img src="./images/poing.png" alt="pierre" />
+            </button>
+            <button id="paper-right" class="rps" value="papier">
+              <img src="./images/main.png" alt="feuille" />
+            </button>
+            <button id="scissors-right" class="rps" value="ciseaux">
+              <img src="./images/ciseaux.png" alt="ciseaux" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="instructions">
+        <span>Choisi ton personnage</span>
+        <button style="display: none" id="start" class="start-btn">
+          <span>Jouer</span>
+        </button>
+      </div>
+      <div class="score-board" style="display: none">
+        <div class="score">
+          <span id="score-left"></span>
+        </div>
+        <div class="score">
+          <span id="score-right"></span>
+        </div>
+      </div>
+      <div class="sfm">
+        <div id="shi">Shi</div>
+        <div id="fu">Fu</div>
+        <div id="mi">Mi</div>
+      </div>
     </main>
     <script src="index.js"></script>
   </body>
